@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#1f4132" />
+    <meta name="description" content="班级随手记：离线可用的班主任工作手账。" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="班级随手记" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>班级随手记</title>
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <path d="M9 21v-7h6v7" />
+      </symbol>
+      <symbol id="i-log" viewBox="0 0 24 24">
+        <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
+        <path d="M8 8h8M8 12h8M8 16h5" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.94 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6h.01A1.7 1.7 0 0 0 10.03 3V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15.06 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.88v.01A1.7 1.7 0 0 0 21 10.03h.01a2 2 0 1 1 0 4H21a1.7 1.7 0 0 0-1.56 1.03Z" />
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <path d="M8 2v4M16 2v4M3 10h18" />
+        <rect x="3" y="4" width="18" height="18" rx="3" />
+        <path d="M8 15h3" />
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01Z" />
+      </symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24">
+        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
+        <path d="M12 9v4M12 17h.01" />
+      </symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24">
+        <path d="M5 22V4M5 5h11l-1.5 4L16 13H5" />
+      </symbol>
+      <symbol id="i-note" viewBox="0 0 24 24">
+        <path d="M4 4h16v12l-5 5H4z" />
+        <path d="M15 21v-5h5M8 9h8M8 13h5" />
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="m9 18 6-6-6-6" />
+      </symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <path d="m15 18-6-6 6-6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" />
+      </symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24">
+        <path d="M12 16V4m0 0 4 4m-4-4L8 8M4 20h16" />
+      </symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24">
+        <path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 11v5M14 11v5" />
+      </symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24">
+        <path d="m12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z" />
+      </symbol>
+      <symbol id="i-more" viewBox="0 0 24 24">
+        <circle cx="5" cy="12" r="1" />
+        <circle cx="12" cy="12" r="1" />
+        <circle cx="19" cy="12" r="1" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        <path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </symbol>
+      <symbol id="i-menu-book" viewBox="0 0 24 24">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+      </symbol>
+    </svg>
+
+    <div id="app" class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-seal">记</div>
+          <div>
+            <div class="brand-name">班级随手记</div>
+            <div class="brand-sub">CLASS NOTES</div>
+          </div>
+        </div>
+        <nav class="side-nav" aria-label="主导航">
+          <button class="nav-btn is-active" data-view="home">
+            <svg><use href="#i-home"></use></svg><span>今日</span>
+          </button>
+          <button class="nav-btn" data-view="records">
+            <svg><use href="#i-log"></use></svg><span>记录</span>
+          </button>
+          <button class="nav-btn" data-view="students">
+            <svg><use href="#i-users"></use></svg><span>学生</span>
+          </button>
+          <button class="nav-btn" data-view="settings">
+            <svg><use href="#i-settings"></use></svg><span>设置</span>
+          </button>
+        </nav>
+        <div class="sidebar-foot">
+          <div class="sidebar-quote">“教育无他，<br />唯爱与榜样。”</div>
+          <div class="offline-badge"><span></span> 本地保存 · 离线可用</div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div id="main-content" class="main-content"></div>
+      </main>
+
+      <nav class="mobile-nav" aria-label="移动端主导航">
+        <button class="mobile-nav-btn is-active" data-view="home">
+          <svg><use href="#i-home"></use></svg><span>今日</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="records">
+          <svg><use href="#i-log"></use></svg><span>记录</span>
+        </button>
+        <button class="mobile-add" data-action="open-add" aria-label="记一笔">
+          <svg><use href="#i-plus"></use></svg>
+        </button>
+        <button class="mobile-nav-btn" data-view="students">
+          <svg><use href="#i-users"></use></svg><span>学生</span>
+        </button>
+        <button class="mobile-nav-btn" data-view="settings">
+          <svg><use href="#i-settings"></use></svg><span>设置</span>
+        </button>
+      </nav>
+    </div>
+
+    <div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+    <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1" hidden>
+      <div class="sheet-grab"></div>
+      <header class="sheet-head">
+        <button class="icon-btn sheet-back" data-action="sheet-close" aria-label="返回">
+          <svg><use href="#i-arrow-left"></use></svg>
+        </button>
+        <div>
+          <p id="sheet-kicker" class="eyebrow"></p>
+          <h2 id="sheet-title">记一笔</h2>
+        </div>
+        <button class="icon-btn" data-action="sheet-close" aria-label="关闭">
+          <svg><use href="#i-close"></use></svg>
+        </button>
+      </header>
+      <div id="sheet-body" class="sheet-body"></div>
+      <div id="sheet-footer" class="sheet-footer" hidden></div>
+    </section>
+
+    <div id="onboarding" class="onboarding" hidden>
+      <div class="onboarding-intro">
+        <div class="intro-pattern"></div>
+        <div class="onboarding-brand">
+          <div class="brand-seal large">记</div>
+          <span>班级随手记</span>
+        </div>
+        <div class="intro-copy">
+          <p class="eyebrow light">A TEACHER'S POCKET LOG</p>
+          <h1>班里的大小事，<br />随手记下。</h1>
+          <p>请假、表现、冲突、活动，一抬手就能记。不用登录，不上传云端。</p>
+        </div>
+        <div class="intro-steps">
+          <div><span>01</span>建好学生名单</div>
+          <div><span>02</span>课间随手添一笔</div>
+          <div><span>03</span>每周回看与跟进</div>
+        </div>
+        <div class="intro-foot"><svg><use href="#i-shield"></use></svg> 数据只保存在这台手机</div>
+      </div>
+      <div class="onboarding-form-wrap">
+        <form id="setup-form" class="onboarding-form">
+          <div class="mobile-brand">
+            <div class="brand-seal">记</div>
+            <span>班级随手记</span>
+          </div>
+          <p class="eyebrow">WELCOME, TEACHER</p>
+          <h2>先把班级装进口袋</h2>
+          <p class="form-lead">用一分钟完成设置，之后就可以开始记录。</p>
+          <label class="field">
+            <span>你的称呼</span>
+            <input id="setup-teacher" name="teacher" type="text" maxlength="20" placeholder="例如：吴老师" autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>班级名称 <b>*</b></span>
+            <input id="setup-class" name="className" type="text" maxlength="30" placeholder="例如：八年级（3）班" required />
+          </label>
+          <label class="field">
+            <span>学生名单 <small>可选，稍后也能添加</small></span>
+            <textarea id="setup-roster" name="roster" rows="5" placeholder="每行一个名字，也可以用逗号、顿号分隔&#10;例如：&#10;张晨&#10;李雨桐&#10;王子轩"></textarea>
+          </label>
+          <button class="primary-btn wide" type="submit">
+            开始使用 <svg><use href="#i-chevron"></use></svg>
+          </button>
+          <button id="demo-btn" class="text-btn" type="button">先用示例班级看看</button>
+          <p class="privacy-note"><svg><use href="#i-shield"></use></svg> 本应用无服务器，所有内容保存在当前设备。请定期在设置中导出备份。</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <input id="import-file" type="file" accept="application/json,.json" hidden />
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

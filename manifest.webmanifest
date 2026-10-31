@@ -1,0 +1,64 @@
+{
+  "id": "./",
+  "name": "班级随手记",
+  "short_name": "随手记",
+  "description": "班主任的离线班级工作手账：请假、表现、冲突、活动与学生档案。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#f1ecdf",
+  "theme_color": "#1f4132",
+  "categories": ["productivity", "education"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "记一笔",
+      "short_name": "记一笔",
+      "description": "快速记录班级事项",
+      "url": "./?source=shortcut&action=add",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "查看记录",
+      "short_name": "记录",
+      "description": "查看全部班级记录",
+      "url": "./?source=shortcut&view=records",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
